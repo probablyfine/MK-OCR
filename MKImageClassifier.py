@@ -49,7 +49,7 @@ class MKImageClassifier:
         self.mdl.fit()
         
     def tune( self, ncomps=[4,5,10,15,20,25], Cs=[0.01,0.1,0.5,1], n_jobs=2):
-        print( 'tuning...', end='', flush=True)
+        print( f'tuning {self.kind}...', end='', flush=True)
         gs = Parallel( n_jobs=n_jobs)(delayed(self._xvalidate)(ncomp,C) for C in Cs for ncomp in ncomps)
         gs = pd.DataFrame( gs)
         gs.sort_values( by=['accuracy','ncomp','C'], ascending=[False,True,True], inplace=True)
