@@ -50,6 +50,7 @@ class MKImageLoader:
         return self._get_as_array( pts_signs)
         
 def load_images( filepaths):
+    # returns 3 numpy arrays of size (height,width,ndigit,nplayer,nfile), and 1 list of length nfile
     vr_digits  = []
     pts_digits = []
     pts_signs  = []
