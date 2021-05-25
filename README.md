@@ -1,9 +1,20 @@
-
 # MK-OCR
 
 <img width="30%" src='https://github.com/probablyfine/MK-OCR/raw/main/readme-img/meme.png'>
 
-## What/Why
+# Table of Contents
+
+* [What/Why](https://github.com/probablyfine/MK-OCR#whatwhy)
+* [How](https://github.com/probablyfine/MK-OCR#how)
+* [Requirements](https://github.com/probablyfine/MK-OCR#requirements)
+* [Usage](https://github.com/probablyfine/MK-OCR#usage)
+    - [High-level functions](https://github.com/probablyfine/MK-OCR#high-levelfunctions
+    - Using the individual classifiers
+    - Work with image data directly
+    - Label your own training data
+
+
+# What/Why
 
 Well, it's code that uses machine learning to analyze Mario Kart race result screenshots and dump all the results into a spreadsheet. Basically it's a very silly, highly specific [OCR](https://en.wikipedia.org/wiki/Optical_character_recognition) routine.
 
@@ -11,7 +22,7 @@ Well, it's code that uses machine learning to analyze Mario Kart race result scr
 
 I wrote it after playing a bunch of Mario Kart online and wondering how the game awards points after a race. It's obvious that you get more points for beating players with a better rating than you, and lose more points for losing to someone with a worse rating than you, but the exact rules aren't clear. I thought I might be able to work out the pattern if I could analyze the data. I haven't figured it out really (I'll probably post more about that another time), but maybe someone else wants to take a crack at it, or just wants to look at a simple machine learning example.
 
-## How
+# How
 
 The stats shown after a race are an easy target for simple machine learning since the digits are very distinct and consistent in appearance.
 
@@ -29,7 +40,7 @@ Rather than feed the raw pixels into the classifier, they're processed first by:
 
 The model fitting process uses [cross-validation](https://en.wikipedia.org/wiki/Cross-validation_(statistics)) to choose the number of components to retain from the factor analysis, and to tune the [regularization strength](https://stats.stackexchange.com/a/18765) of the SVM. It selects the best-performing model and exposes it to the user.
 
-## Requirements
+# Requirements
 - Mario Kart 8 Deluxe screenshots. I captured mine using a Switch Lite. I suspect a full-sized Switch would be fine, too, but I didn't try it. You can also just use my screenshots.
 - Python3 (I'm using 3.7.1)
 - PIL
@@ -39,7 +50,9 @@ The model fitting process uses [cross-validation](https://en.wikipedia.org/wiki/
 - joblib
 - [pigeon](https://github.com/agermanidis/pigeon), only if you want to label your own training data for some reason
 
-## Usage
+# Usage
+
+## High-level functions
 
 The high-level MKDataCompiler class is the easiest place to start, and it's very simple to use. Just give it training data and your screenshots, and get a pandas DataFrame.
 
@@ -225,9 +238,7 @@ The biggest trouble with this classification task has to do with detecting blank
 
 This issue made it tough at first to get perfect accuracy. There were always a couple samples that got misclassified. My first solution was to just add more training data, which is why there is such a stupidly large number of labeled samples in my training set. It didn't really help though, so I started playing around with pre-processing and found that applying a sharpening filter to the image made a big difference. This filter made each digit stand out better against the background scenes.
 
-## Other fun things
-
-### Playing with the individual classifiers
+## Using the individual classifiers
 
 You don't need to use the high-level MKDataCompiler class. Using the classifiers directly might also be interesting:
 
@@ -340,7 +351,7 @@ plt.tight_layout()
 <img src='https://github.com/probablyfine/MK-OCR/raw/main/readme-img/px_pred.png'>
 
 
-### Work with images directly
+## Work with image data directly
 You can use the image loader class, MKImageLoader, if you want more direct access to the pixel data.
 
 
@@ -480,7 +491,7 @@ type(all_user_ranks), len(all_user_ranks)
 
 
 
-### Label your own training data
+## Label your own training data
 You don't need to do this, but it's here if you want to for some reason. You can label your own data any way you like, but I used [pigeon](https://github.com/agermanidis/pigeon) and thought it was pretty convenient. The MKImageLabeler class is provided to help with this:
 
 
