@@ -20,7 +20,7 @@ Well, it's code that uses machine learning to analyze Mario Kart race result scr
 
 <img src='https://github.com/probablyfine/MK-OCR/raw/main/readme-img/intro.jpg'>
 
-I wrote it after playing a bunch of Mario Kart online and wondering how the game awards points after a race. It's obvious that you get more points for beating players with a better rating than you, and lose more points for losing to someone with a worse rating than you, but the exact rules aren't clear. I thought I might be able to work out the pattern if I could analyze the data. I haven't figured it out really (I'll probably post more about that another time), but maybe someone else wants to take a crack at it, or just wants to look at a simple machine learning example.
+I wrote it after playing a bunch of Mario Kart online and wondering how the game awards points after a race. It's obvious that you get more points for beating players with a better rating than you, and lose more points for losing to someone with a worse rating than you, but the exact rules aren't clear. I thought I might be able to work out the pattern if I could analyze the data. I haven't figured it out really (I'll probably post more about that another time), but maybe someone else wants to take a crack at it. If nothing else, this might be useful as an example of a simple machine learning task.
 
 # How
 
