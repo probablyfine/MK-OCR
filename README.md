@@ -62,9 +62,6 @@ from MKDataCompiler import MKDataCompiler
 import glob
 ```
 
-#### load training data, tune/fit image classifiers (one for each of the three types of image data)
-
-
 ```python
 paths_to_labeled = {'vr_digits':  'vr_digits_labeled.xlsx',
                     'pts_digits': 'pts_digits_labeled.xlsx',
