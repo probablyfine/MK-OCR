@@ -8,10 +8,10 @@
 * [How](https://github.com/probablyfine/MK-OCR#how)
 * [Requirements](https://github.com/probablyfine/MK-OCR#requirements)
 * [Usage](https://github.com/probablyfine/MK-OCR#usage)
-    - [High-level functions](https://github.com/probablyfine/MK-OCR#high-levelfunctions
-    - Using the individual classifiers
-    - Work with image data directly
-    - Label your own training data
+    - [High-level functions](https://github.com/probablyfine/MK-OCR#high-level-functions)
+    - [Using the individual classifiers](https://github.com/probablyfine/MK-OCR#using-the-individual-classifiers)
+    - [Work with image data directly](https://github.com/probablyfine/MK-OCR#work-with-image-data-directly)
+    - [Label your own training data](https://github.com/probablyfine/MK-OCR#label-your-own-training-data)
 
 
 # What/Why
